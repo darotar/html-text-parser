@@ -21,3 +21,9 @@ export type Token =
 export type Node = TagNode | TextNode;
 
 export type AllowedTagsList = Set<string> | ReadonlySet<string> | string[];
+
+export type Renderer<T> = {
+  text: (text: string) => T;
+  element: (tag: string, children: T[]) => T;
+  fragment?: (children: T[]) => T;
+};

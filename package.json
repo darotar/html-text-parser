@@ -10,5 +10,13 @@
   "dependencies": {},
   "scripts": {
     "test": "jest"
+  },
+  "peerDependencies": {
+    "react": "^18.0.0",
+    "@types/react": "^18.0.0"
+  },
+  "optionalDependencies": {
+    "react": "^18.0.0",
+    "@types/react": "^18.0.0"
   }
 }

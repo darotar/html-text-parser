@@ -1,10 +1,11 @@
 import { buildHtmlTree } from "./build-html-tree";
 import { DEFAULT_ALLOWED_TAGS } from "./consts";
+import { renderToDom } from "./renderers/dom-renderer";
 import { tokenizeInput } from "./tokenize-input";
-import { AllowedTagsList, Node } from "./types";
+import { AllowedTagsList, Node, Renderer } from "./types";
 
-export const parse = (
+export const parse = <T>(
   input: string,
-  renderer: (tree: Node[]) => null,
+  renderer: <T>(tree: Node[]) => T[],
   allowedTags: AllowedTagsList = DEFAULT_ALLOWED_TAGS
-) => renderer(buildHtmlTree(tokenizeInput(input)));
+): T[] => renderer<T>(buildHtmlTree(tokenizeInput(input)));
