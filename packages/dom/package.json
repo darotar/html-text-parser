@@ -1,6 +1,6 @@
 {
   "name": "@html-text-parser/dom",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "type": "module",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
@@ -9,7 +9,7 @@
     "dist"
   ],
   "dependencies": {
-    "@html-text-parser/core": "0.1.0"
+    "@html-text-parser/core": "0.1.1"
   },
   "exports": {
     ".": {
