@@ -2,8 +2,8 @@
   "name": "html-text-parser",
   "version": "0.1.0",
   "type": "module",
-  "main": "dist/react.cjs.js",
-  "module": "dist/react.esm.js",
+  "main": "dist/dom.cjs.js",
+  "module": "dist/dom.esm.js",
   "exports": {
     ".": {
       "import": "./dist/react.esm.js",
