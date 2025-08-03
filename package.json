@@ -25,9 +25,13 @@
     "react": "*",
     "@types/react": "*"
   },
-  "optionalDependencies": {
-    "react": "*",
-    "@types/react": "*"
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    },
+    "@types/react": {
+      "optional": true
+    }
   },
   "repository": {
     "type": "git",
