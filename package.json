@@ -25,6 +25,10 @@
     "react": "*",
     "@types/react": "*"
   },
+  "optionalDependencies": {
+    "react": "*",
+    "@types/react": "*"
+  },
   "peerDependenciesMeta": {
     "react": {
       "optional": true
