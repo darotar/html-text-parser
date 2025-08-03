@@ -1,0 +1,23 @@
+{
+  "name": "@html-text-parser/react",
+  "version": "0.1.0",
+  "type": "module",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "dependencies": {
+    "@html-text-parser/core": "0.1.0"
+  },
+  "peerDependencies": {
+    "react": "*"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/index.esm.js",
+      "require": "./dist/index.cjs.js"
+    }
+  }
+}

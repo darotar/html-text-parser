@@ -4,51 +4,71 @@ import commonjs from "@rollup/plugin-commonjs";
 import typescript from "@rollup/plugin-typescript";
 
 export default [
-  // Сборка для React
   {
-    input: "src/index.react.ts",
+    input: "packages/core/src/index.ts",
     output: [
       {
-        file: "dist/react.esm.js",
+        file: "packages/core/dist/index.esm.js",
         format: "esm",
         sourcemap: true,
       },
       {
-        file: "dist/react.cjs.js",
+        file: "packages/core/dist/index.cjs.js",
         format: "cjs",
         sourcemap: true,
         exports: "named",
       },
     ],
     plugins: [
-      peerDepsExternal(), // автоматически external-ит все peerDependencies
+      peerDepsExternal(),
       nodeResolve(),
       commonjs(),
-      typescript({ tsconfig: "./tsconfig.json" }),
+      typescript({ tsconfig: "./packages/core/tsconfig.json" }),
     ],
-    // дополнительная гарантия, что React не попадёт в бандл
-    external: (id) => /^react($|\/)/.test(id),
   },
   {
-    input: "src/index.dom.ts",
+    input: "packages/react/src/index.ts",
     output: [
       {
-        file: "dist/dom.esm.js",
+        file: "packages/react/dist/index.esm.js",
         format: "esm",
         sourcemap: true,
       },
       {
-        file: "dist/dom.cjs.js",
+        file: "packages/react/dist/index.cjs.js",
         format: "cjs",
         sourcemap: true,
-        exports: "named",
       },
     ],
     plugins: [
-      peerDepsExternal(), // автоматически external-ит все peerDependencies
+      peerDepsExternal(),
       nodeResolve(),
       commonjs(),
-      typescript({ tsconfig: "./tsconfig.json" }),
+      typescript({ tsconfig: "./packages/react/tsconfig.json" }),
     ],
+    external: (id) =>
+      id === "@html-text-parser/core" || /^react($|\/)/.test(id),
+  },
+  {
+    input: "packages/dom/src/index.ts",
+    output: [
+      {
+        file: "packages/dom/dist/index.esm.js",
+        format: "esm",
+        sourcemap: true,
+      },
+      {
+        file: "packages/dom/dist/index.cjs.js",
+        format: "cjs",
+        sourcemap: true,
+      },
+    ],
+    plugins: [
+      peerDepsExternal(),
+      nodeResolve(),
+      commonjs(),
+      typescript({ tsconfig: "./packages/dom/tsconfig.json" }),
+    ],
+    external: ["@html-text-parser/core"],
   },
 ];

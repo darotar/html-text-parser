@@ -1,4 +1,4 @@
-import { Node, Renderer } from "../types";
+import { Node, Renderer } from "./types";
 
 export const renderWith = <T>(tree: Node[], renderer: Renderer<T>): T[] => {
   const renderNode = (node: Node): T => {

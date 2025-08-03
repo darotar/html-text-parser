@@ -1,5 +1,5 @@
-import { renderWith } from "./renderer";
-import type { Node } from "../types";
+import { renderWith } from "@html-text-parser/core";
+import type { Node } from "@html-text-parser/core";
 
 export const renderToDom = (tree: Node[]) =>
   renderWith<HTMLElement | Text | DocumentFragment>(tree, {
