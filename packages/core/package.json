@@ -13,5 +13,8 @@
       "import": "./dist/index.esm.js",
       "require": "./dist/index.cjs.js"
     }
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
