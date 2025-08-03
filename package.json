@@ -1,41 +1,63 @@
 {
   "name": "html-text-parser",
   "version": "0.1.0",
-  "main": "dist/index.js",
   "type": "module",
-  "types": "dist/index.d.ts",
+  "main": "dist/react.cjs.js",
+  "module": "dist/react.esm.js",
+  "exports": {
+    ".": {
+      "import": "./dist/react.esm.js",
+      "require": "./dist/react.cjs.js"
+    },
+    "./react": {
+      "import": "./dist/react.esm.js",
+      "require": "./dist/react.cjs.js"
+    },
+    "./vue": {
+      "import": "./dist/vue.esm.js",
+      "require": "./dist/vue.cjs.js"
+    }
+  },
   "files": [
     "dist"
   ],
-  "devDependencies": {
-    "@babel/preset-env": "^7.28.0",
-    "@babel/preset-typescript": "^7.27.1",
-    "@types/jest": "^30.0.0",
-    "jest": "^30.0.5",
-    "typescript": "^5.9.2"
-  },
-  "dependencies": {},
-  "scripts": {
-    "test": "jest",
-    "build": "tsc",
-    "clean": "rm -rf dist",
-    "prepare": "yarn build"
-  },
   "peerDependencies": {
+    "@types/react": "*",
     "react": "*",
-    "@types/react": "*"
-  },
-  "optionalDependencies": {
-    "react": "*",
-    "@types/react": "*"
+    "vue": "*"
   },
   "peerDependenciesMeta": {
     "react": {
       "optional": true
     },
-    "@types/react": {
+    "vue": {
       "optional": true
     }
+  },
+  "types": "dist/index.d.ts",
+  "devDependencies": {
+    "@babel/preset-env": "^7.28.0",
+    "@babel/preset-typescript": "^7.27.1",
+    "@rollup/plugin-commonjs": "^28.0.6",
+    "@rollup/plugin-node-resolve": "^16.0.1",
+    "@rollup/plugin-typescript": "^12.1.4",
+    "@types/jest": "^30.0.0",
+    "jest": "^30.0.5",
+    "rollup": "^4.46.2",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "tslib": "^2.8.1",
+    "typescript": "^5.9.2"
+  },
+  "dependencies": {},
+  "scripts": {
+    "test": "jest",
+    "build": "rollup -c",
+    "clean": "rm -rf dist",
+    "prepare": "yarn build"
+  },
+  "optionalDependencies": {
+    "@types/react": "*",
+    "react": "*"
   },
   "repository": {
     "type": "git",
